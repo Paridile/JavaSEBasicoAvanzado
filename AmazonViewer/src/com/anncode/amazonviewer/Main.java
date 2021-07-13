@@ -27,7 +27,7 @@ public class Main {
 			
 			System.out.println("BIENVENIDOS AMAZON VIEWER");
 			System.out.println("");
-			System.out.println("Selecciona el nÃºmero de la opciÃ³n deseada");
+			System.out.println("Selecciona el número de la opción deseada");
 			System.out.println("1. Movies");
 			System.out.println("2. Series");
 			System.out.println("3. Books");
@@ -68,7 +68,7 @@ public class Main {
 	
 				default:
 					System.out.println();
-					System.out.println("....Â¡Â¡Selecciona una opciÃ³n!!....");
+					System.out.println("....¡Selecciona una opción!!....");
 					System.out.println();
 					exit = 1;
 					break;
@@ -206,7 +206,7 @@ public class Main {
 			System.out.println();
 			
 			for (int i = 0; i < books.size(); i++) { //1. Book 1
-				System.out.println(i+1 + ". " + books.get(i).getTitle() + " LeÃ­do: " + books.get(i).isReaded());
+				System.out.println(i+1 + ". " + books.get(i).getTitle() + " Leído: " + books.get(i).isReaded());
 			}
 			
 			System.out.println("0. Regresar al Menu");
@@ -232,7 +232,7 @@ public class Main {
 				//Termine de verla
 				bookSelected.stopToSee(dateI, new Date());
 				System.out.println();
-				System.out.println("LeÃ­ste: " + bookSelected);
+				System.out.println("Leíste: " + bookSelected);
 				System.out.println("Por: " + bookSelected.getTimeReaded() + " milisegundos");
 			}
 			
