@@ -74,7 +74,6 @@ public class Main {
 					exit = 1;
 					break;
 				case 6:
-					//Date date = new Date();
 					makeReport(new Date());
 					exit = 1;
 					break;
@@ -286,7 +285,7 @@ public class Main {
 	}
 	
 	public static void makeReport(Date date) {
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd-h-m-s-S");
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
 		String dateString = df.format(date);
 		Report report = new Report();
 		

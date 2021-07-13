@@ -1,5 +1,6 @@
 package com.paridile.amazonviewer.model;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -15,6 +16,7 @@ public class Movie extends Film implements IVisualizable,MovieDAO {
 	
 	private int id;
 	private int timeViewed;
+	private String dateViewed;
 	
 	
 	public Movie(String title, String genre, String creator, int duration, short year) {
@@ -50,8 +52,23 @@ public class Movie extends Film implements IVisualizable,MovieDAO {
 				"\n Genero: " + getGenre() + 
 				"\n Year: " + getYear() + 
 				"\n Creator: " + getCreator() +
-				"\n Duration: " + getDuration();
+				"\n Duration: " + getDuration() + 
+				"\n Watched: " + getDateViewed();
 	}
+	
+	
+	public String getDateViewed() {		
+		if( dateViewed.length() == 0 && this.getIsViewed() == true) {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			dateViewed = sdf.format(new Date());
+		}
+		return dateViewed;
+	}
+
+	public void setDateViewed(String dateViewed) {
+		this.dateViewed = dateViewed;
+	}
+
 	/**
 	 * {@inheritDoc} 
 	 * */
@@ -87,9 +104,10 @@ public class Movie extends Film implements IVisualizable,MovieDAO {
 	 * */
 	@Override
 	public void view() {
-		setViewed(true);
-		
+		startToSee(new Date());		
 		Movie movie = new Movie();
+		setViewed(true);
+				
 		movie.setMovieViewed(this);
 		
 		Date dateI = startToSee(new Date());

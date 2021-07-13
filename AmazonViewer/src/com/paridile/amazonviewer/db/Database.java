@@ -28,6 +28,7 @@ public class Database {
 	public static final String VIEWED_ID_MATERIAL = "id_material";
 	public static final String VIEWED_ID_ELEMENT = "id_element";
 	public static final String VIEWED_ID_USER = "id_user";
+	public static final String VIEWED_DATETIME = "datetime";
 		 
 	
 }
