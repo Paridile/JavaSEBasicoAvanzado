@@ -4,19 +4,14 @@ import java.util.ArrayList;
 
 public class Album {
 	private ArrayList<Song> songs;
-	
-	
-	
+			
 	public Album() {		
 				
 	}
 
 
-
-	private class Song {
+	private static class Song {
 		protected String title;
-		protected String duration;
-		
-		
+		protected String duration;				
 	}
 }
