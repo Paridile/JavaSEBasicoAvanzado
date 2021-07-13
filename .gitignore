@@ -164,4 +164,8 @@ local.properties
 .loadpath
 .factorypath
 
+.metadata/
+/AmazonViewer/.settings/
+/AmazonViewer/bin/
+/AmazonViewer/libs/
 
