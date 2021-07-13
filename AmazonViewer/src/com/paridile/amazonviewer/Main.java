@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.print.attribute.standard.PrinterMakeAndModel;
+
 import com.paridile.amazonviewer.model.Book;
 import com.paridile.amazonviewer.model.Chapter;
 import com.paridile.amazonviewer.model.Magazine;
@@ -36,8 +38,7 @@ public class Main {
 	
 	public static void showMenu() {
 		int exit = 0;
-		do {
-			
+		do {		
 			System.out.println("BIENVENIDOS AMAZON VIEWER");			
 			System.out.println("");
 			System.out.println("Selecciona el número de la opción deseada");
@@ -294,12 +295,15 @@ public class Main {
 		report.setTitle(":: VISTOS ::");
 		
 		
-		SimpleDateFormat dfNameDays = new SimpleDateFormat("E, W MMM Y");
+		SimpleDateFormat dfNameDays = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
 		dateString = dfNameDays.format(date);
 		String contentReport = "Date: " + dateString + "\n\n\n";
-		
-		for (Movie movie : movies) {
-			if (movie.getIsViewed()) {
+		String dateConsulted[] = dateString.split(" ");
+		String dateViewed[];
+		for (Movie movie : movies) {			
+			dateViewed = movie.getDateViewed().split(" ");
+			System.out.println(dateViewed[0]+" = " + dateConsulted[0]);
+			if (movie.getIsViewed() && dateViewed[0].equals(dateConsulted[0])) {
 				contentReport += movie.toString() + "\n";
 				
 			}

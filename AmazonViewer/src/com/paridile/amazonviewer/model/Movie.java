@@ -16,7 +16,7 @@ public class Movie extends Film implements IVisualizable,MovieDAO {
 	
 	private int id;
 	private int timeViewed;
-	private String dateViewed;
+	
 	
 	
 	public Movie(String title, String genre, String creator, int duration, short year) {
@@ -56,18 +56,6 @@ public class Movie extends Film implements IVisualizable,MovieDAO {
 				"\n Watched: " + getDateViewed();
 	}
 	
-	
-	public String getDateViewed() {		
-		if( dateViewed.length() == 0 && this.getIsViewed() == true) {
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			dateViewed = sdf.format(new Date());
-		}
-		return dateViewed;
-	}
-
-	public void setDateViewed(String dateViewed) {
-		this.dateViewed = dateViewed;
-	}
 
 	/**
 	 * {@inheritDoc} 
