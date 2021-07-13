@@ -1,11 +1,11 @@
-package com.anncode.amazonviewer.model;
+package com.paridile.amazonviewer.model;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-import com.anncode.amazonviewer.model.IVisualizable;
-import com.anncode.amazonviewer.model.Publication;
-import com.anncode.util.AmazonUtil;
+import com.paridile.amazonviewer.model.IVisualizable;
+import com.paridile.amazonviewer.model.Publication;
+import com.paridile.util.AmazonUtil;
 /**
  * <h1>Book</h1>
  * La clase {@code Book} hereda de {@link Publication} e implementa {@link IVisualizable}

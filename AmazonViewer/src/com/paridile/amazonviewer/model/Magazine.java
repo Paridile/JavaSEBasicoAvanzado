@@ -1,4 +1,4 @@
-package com.anncode.amazonviewer.model;
+package com.paridile.amazonviewer.model;
 
 import java.util.ArrayList;
 import java.util.Date;

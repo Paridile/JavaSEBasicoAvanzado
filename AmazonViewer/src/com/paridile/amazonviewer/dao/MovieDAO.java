@@ -1,8 +1,8 @@
-package com.anncode.amazonviewer.dao;
+package com.paridile.amazonviewer.dao;
 
 import java.util.ArrayList;
 
-import com.anncode.amazonviewer.model.Movie;
+import com.paridile.amazonviewer.model.Movie;
 
 public interface MovieDAO {
 	

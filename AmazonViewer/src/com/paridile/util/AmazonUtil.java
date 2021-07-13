@@ -1,4 +1,4 @@
-package com.anncode.util;
+package com.paridile.util;
 
 import java.util.Scanner;
 
