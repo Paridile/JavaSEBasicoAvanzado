@@ -2,6 +2,7 @@ package com.paridile.amazonviewer.db;
 
 public class Database {
 	public static final String URL = "jdbc:mysql://localhost:3306/";
+	public static final String TIME_ZONE = "?serverTimezone=UTC";
 	public static final String DB = "amazonviewer";
 	public static final String USER = "amazonviewer";
 	public static final String PASSWORD = "amazonviewer";
