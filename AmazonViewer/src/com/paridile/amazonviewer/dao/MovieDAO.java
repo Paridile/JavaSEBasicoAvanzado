@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.paridile.amazonviewer.model.Movie;
 
-public interface MovieDAO {
+public interface MovieDAO {	
 	
 	default Movie setMovieViewed(Movie movie) {
 		return movie;
