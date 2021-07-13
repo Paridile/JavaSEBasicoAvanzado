@@ -5,6 +5,15 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 
+/**
+ * <h1>Report</h1>
+ * Clase encargada de generar reportes con los detalles
+ * de las visualizaciones del contenido multimedia
+ * @author pablo
+ * @version 1.0
+ * @since 2021
+ * */
+
 public class Report {
 	
 	private String nameFile;
