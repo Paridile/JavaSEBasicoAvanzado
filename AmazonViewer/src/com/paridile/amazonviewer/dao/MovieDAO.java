@@ -3,6 +3,7 @@ package com.paridile.amazonviewer.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -13,6 +14,20 @@ import static com.paridile.amazonviewer.db.Database.*;
 public interface MovieDAO extends IDBConnection{	
 	
 	default Movie setMovieViewed(Movie movie) {
+		try (Connection connection = connectToDB()) {
+			Statement statement = connection.createStatement();
+			String query = "INSERT INTO " + VIEWED + "( " 
+					+ VIEWED_ID_MATERIAL + ", " + 
+					VIEWED_ID_ELEMENT + ", " +
+					VIEWED_ID_USER +
+					" )" + " VALUES(" + MATERIAL_ID[0]
+					+ ", " + movie.getId() + ", " + USER_ID + ")";
+			if (statement.executeUpdate(query) > 0) {
+				System.out.println("Se marcó en visto");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return movie;
 	} 
 	
