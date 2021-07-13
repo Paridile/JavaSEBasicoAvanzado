@@ -2,13 +2,25 @@ package com.anncode.amazonviewer.model;
 
 import java.util.ArrayList;
 import java.util.Date;
-
+/**
+ * <h1>Book</h1>
+ * La clase {@code Book} hereda de {@link Publication} e implementa {@link IVisualizable}
+ * @author pablo
+ * @version 1.0
+ * @
+ * */
 public class Book extends Publication implements IVisualizable {
 	private int id;
 	private String isbn;
 	private boolean readed;
 	private int timeReaded;
 	
+	
+	/**
+	 * Metodo que permite visualizar/leer un libro
+	 * @author pablo
+	 * @since 2021
+	 * */
 	public void view() {
 		setReaded(true);
 		Date dateI = startToSee(new Date());
