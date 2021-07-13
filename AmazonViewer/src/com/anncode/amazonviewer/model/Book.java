@@ -7,7 +7,7 @@ import java.util.Date;
  * La clase {@code Book} hereda de {@link Publication} e implementa {@link IVisualizable}
  * @author pablo
  * @version 1.0
- * @
+ * 
  * */
 public class Book extends Publication implements IVisualizable {
 	private int id;
