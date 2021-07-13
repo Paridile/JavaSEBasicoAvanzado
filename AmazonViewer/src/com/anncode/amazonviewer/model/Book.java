@@ -9,6 +9,20 @@ public class Book extends Publication implements IVisualizable {
 	private boolean readed;
 	private int timeReaded;
 	
+	public void view() {
+		setReaded(true);
+		Date dateI = startToSee(new Date());
+		
+		for (int i = 0; i < 100000; i++) {
+			System.out.println("..........");
+		}
+		
+		//Termine de verla
+		stopToSee(dateI, new Date());
+		System.out.println();
+		System.out.println("Leíste: " + toString());
+		System.out.println("Por: " + getTimeReaded() + " milisegundos");
+	}
 	
 	public Book(String title, Date edititionDate, String editorial, String[] authors) {
 		super(title, edititionDate, editorial);
