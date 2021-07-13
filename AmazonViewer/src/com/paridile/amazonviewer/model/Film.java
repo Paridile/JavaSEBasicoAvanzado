@@ -34,6 +34,10 @@ public abstract class Film {
 		this.duration = duration;
 	}
 	
+	public Film() {
+		
+	}
+	
 	public String getTitle() {
 		return title;
 	}
