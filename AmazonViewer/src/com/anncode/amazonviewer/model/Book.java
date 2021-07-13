@@ -2,6 +2,9 @@ package com.anncode.amazonviewer.model;
 
 import java.util.ArrayList;
 import java.util.Date;
+
+import com.anncode.amazonviewer.model.IVisualizable;
+import com.anncode.amazonviewer.model.Publication;
 /**
  * <h1>Book</h1>
  * La clase {@code Book} hereda de {@link Publication} e implementa {@link IVisualizable}
