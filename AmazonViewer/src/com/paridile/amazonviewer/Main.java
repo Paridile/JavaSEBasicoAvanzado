@@ -1,17 +1,16 @@
-package com.anncode.amazonviewer;
+package com.paridile.amazonviewer;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import com.anncode.amazonviewer.model.Book;
-import com.anncode.amazonviewer.model.Chapter;
-import com.anncode.amazonviewer.model.Film;
-import com.anncode.amazonviewer.model.Magazine;
-import com.anncode.amazonviewer.model.Movie;
-import com.anncode.amazonviewer.model.Serie;
-import com.anncode.makereport.Report;
-import com.anncode.util.AmazonUtil;
+import com.paridile.amazonviewer.model.Book;
+import com.paridile.amazonviewer.model.Chapter;
+import com.paridile.amazonviewer.model.Magazine;
+import com.paridile.amazonviewer.model.Movie;
+import com.paridile.amazonviewer.model.Serie;
+import com.paridile.makereport.Report;
+import com.paridile.util.AmazonUtil;
 
 /**
  * <h1>AmazonViewer</h1>
@@ -32,9 +31,7 @@ import com.anncode.util.AmazonUtil;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub		
 		showMenu();
-
 	}
 	
 	public static void showMenu() {
