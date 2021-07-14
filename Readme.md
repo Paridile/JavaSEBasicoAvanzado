@@ -24,7 +24,7 @@ Algunos de los temas estudiados en este curso fueron:
 >   * Clases abstractas
 >   * M&eacute;todos abstractos
 > <p></p>
->
+> 
 >* ***JavaDocss***
 >   * Implementaci&oacute;n
 >   * JavaDocs tags
@@ -69,6 +69,16 @@ Algunos de los temas estudiados en este curso fueron:
 >
 
 </br>
+</br>
+
+----
+
+</br>
+
+## Dependencias
+
+El proyecto necesita que importes el driver **(JDBC)** para hacer la conexi&oacute;n con la base de datos, puedes descargarlo de la p&aacute;gina oficial de mySQL haciendo click [aqu&iacute;](https://dev.mysql.com/downloads/connector/j/ "aqu&iacute;")
+
 </br>
 
 ----
