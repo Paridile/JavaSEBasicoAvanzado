@@ -3,6 +3,7 @@ package com.paridile.amazonviewer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.print.attribute.standard.PrinterMakeAndModel;
 
@@ -100,9 +101,14 @@ public class Main {
 			System.out.println(":: MOVIES ::");
 			System.out.println();
 			
-			for (int i = 0; i < movies.size(); i++) { //1. Movie 1
-				System.out.println(i+1 + ". " + movies.get(i).getTitle() + " Visto: " + movies.get(i).isViewed());
-			}
+			AtomicInteger atomicInteger = new AtomicInteger(1);
+			//movies.forEach(m -> System.out.println(atomicInteger.getAndIncrement() + ". " + m.getTitle() + " Visto: " + m.isViewed()));
+			movies.forEach(System.out::println);
+	//		for (int i = 0; i < movies.size(); i++) { //1. Movie 1
+//				System.out.println(i+1 + ". " + movies.get(i).getTitle() + " Visto: " + movies.get(i).isViewed());
+			//}
+			
+			
 			
 			System.out.println("0. Regresar al Menu");
 			System.out.println();

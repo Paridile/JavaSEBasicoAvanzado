@@ -23,5 +23,9 @@ public class Main {
 		
 		onClickListener.clickListener("boton");
 		
+		OnOneListener oneListener3 = message -> System.out.println("Tu mensaje: " + message);
+		
+		
+				
 	}
 }
