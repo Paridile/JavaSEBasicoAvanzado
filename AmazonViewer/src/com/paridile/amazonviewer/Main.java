@@ -102,8 +102,8 @@ public class Main {
 			System.out.println();
 			
 			AtomicInteger atomicInteger = new AtomicInteger(1);
-			//movies.forEach(m -> System.out.println(atomicInteger.getAndIncrement() + ". " + m.getTitle() + " Visto: " + m.isViewed()));
-			movies.forEach(System.out::println);
+			movies.forEach(m -> System.out.println(atomicInteger.getAndIncrement() + ". " + m.getTitle() + " Visto: " + m.isViewed()));
+			//movies.forEach(System.out::println);
 	//		for (int i = 0; i < movies.size(); i++) { //1. Movie 1
 //				System.out.println(i+1 + ". " + movies.get(i).getTitle() + " Visto: " + movies.get(i).isViewed());
 			//}
@@ -258,20 +258,23 @@ public class Main {
 		report.setNameFile("reporte");
 		report.setExtension("txt");
 		report.setTitle(":: VISTOS ::");
-		String contentReport = "";
+		StringBuilder contentReport = new StringBuilder();
 		
-		for (Movie movie : movies) {
-			if (movie.getIsViewed()) {
-				contentReport += movie.toString() + "\n";
-				
-			}
-		}
+		movies.stream().filter(m -> m.getIsViewed())
+		.forEach(m->contentReport.append(m.toString()+"\n"));
+		
+//		for (Movie movie : movies) {
+//			if (movie.getIsViewed()) {
+//				contentReport += movie.toString() + "\n";
+//				
+//			}
+//		}
 		
 		for (Serie serie : series) {
 			ArrayList<Chapter> chapters = serie.getChapters();
 			for (Chapter chapter : chapters) {
 				if (chapter.getIsViewed()) {
-					contentReport += chapter.toString() + "\n";
+					//contentReport += chapter.toString() + "\n";
 					
 				}
 			}	
@@ -280,12 +283,12 @@ public class Main {
 		
 		for (Book book : books) {
 			if (book.getIsReaded()) {
-				contentReport += book.toString() + "\n";
+				//contentReport += book.toString() + "\n";
 				
 			}
 		}
 
-		report.setContent(contentReport);
+		report.setContent(contentReport.toString());
 		report.makeReport();
 		System.out.println("Reporte Generado");
 		System.out.println();
