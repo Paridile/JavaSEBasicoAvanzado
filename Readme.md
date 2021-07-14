@@ -75,7 +75,7 @@ Algunos de los temas estudiados en este curso fueron:
 
 </br>
 
-## Dependencias
+## Dependencias 🖇
 
 El proyecto necesita que importes el driver **(JDBC)** para hacer la conexi&oacute;n con la base de datos, puedes descargarlo de la p&aacute;gina oficial de mySQL haciendo click [aqu&iacute;](https://dev.mysql.com/downloads/connector/j/ "aqu&iacute;")
 
@@ -85,6 +85,17 @@ El proyecto necesita que importes el driver **(JDBC)** para hacer la conexi&oacu
 
 </br>
 
+## Nota 📝
+
+Este repositorio es un fork de otro, pues este curso es continuaci&oacute;n del curso de java b&aacute;sico 2018, y yo curse la versi&oacute;n actualizada del mismo, por lo que el seguimiento se perdia.
+Este curso da inicio a partir de la rama `31. MakeReportAllEntities` del [repositorio original.](https://github.com/anncode1/JavaSEBasicoAvanzado "repositorio original.")
+
+
+</br>
+
+----
+
+</br>
 
 ## Tecnolog&iacute;as utilizadas 💻
 
