@@ -1,5 +1,8 @@
 package com.paridile.amazonviewer.model;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * 
  * <h1>Film</h1>
@@ -23,6 +26,7 @@ public abstract class Film {
 	private int duration;
 	private short year;
 	private boolean viewed;
+	private String dateViewed;
 	
 	
 	
@@ -84,6 +88,18 @@ public abstract class Film {
 	}
 	public void setViewed(boolean viewed) {
 		this.viewed = viewed;
+	}
+	
+	public String getDateViewed() {		
+		if( dateViewed.length() == 0 && this.getIsViewed() == true) {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			dateViewed = sdf.format(new Date());
+		}
+		return dateViewed;
+	}
+
+	public void setDateViewed(String dateViewed) {
+		this.dateViewed = dateViewed;
 	}
 	
 	/**
