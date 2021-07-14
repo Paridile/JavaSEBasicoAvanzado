@@ -3,6 +3,9 @@ package com.paridile.amazonviewer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 import javax.print.attribute.standard.PrinterMakeAndModel;
 
@@ -100,9 +103,14 @@ public class Main {
 			System.out.println(":: MOVIES ::");
 			System.out.println();
 			
-			for (int i = 0; i < movies.size(); i++) { //1. Movie 1
-				System.out.println(i+1 + ". " + movies.get(i).getTitle() + " Visto: " + movies.get(i).isViewed());
-			}
+			AtomicInteger atomicInteger = new AtomicInteger(1);
+			movies.forEach(m -> System.out.println(atomicInteger.getAndIncrement() + ". " + m.getTitle() + " Visto: " + m.isViewed()));
+			//movies.forEach(System.out::println);
+	//		for (int i = 0; i < movies.size(); i++) { //1. Movie 1
+//				System.out.println(i+1 + ". " + movies.get(i).getTitle() + " Visto: " + movies.get(i).isViewed());
+			//}
+			
+			
 			
 			System.out.println("0. Regresar al Menu");
 			System.out.println();
@@ -252,20 +260,40 @@ public class Main {
 		report.setNameFile("reporte");
 		report.setExtension("txt");
 		report.setTitle(":: VISTOS ::");
-		String contentReport = "";
+		StringBuilder contentReport = new StringBuilder();
 		
+		movies.stream().filter(m -> m.getIsViewed())
+		.forEach(m->contentReport.append(m.toString()+"\n"));
+		
+		//Predicate<Serie> seriesviewed = s -> s.getIsViewed();
+		//series.stream().filter(seriesviewed);
+				
+		//Consumer<Serie> seriesEach = m->contentReport.append(m.toString()+"\n");
+		
+			
+		Consumer<Serie> seriesEach = s -> {
+			ArrayList<Chapter> chapters = s.getChapters();
+			chapters.stream().filter(c -> c.getIsViewed()).
+			forEach(c->contentReport.append(c.toString()+"\n"));;
+		};
+		series.stream().forEach(seriesEach);;
+		
+		
+		books.stream().filter(b -> b.getIsReaded())
+		.forEach(b->contentReport.append(b.toString()+"\n"));
+		/*		
 		for (Movie movie : movies) {
 			if (movie.getIsViewed()) {
 				contentReport += movie.toString() + "\n";
 				
 			}
 		}
-		
+		/*
 		for (Serie serie : series) {
 			ArrayList<Chapter> chapters = serie.getChapters();
 			for (Chapter chapter : chapters) {
 				if (chapter.getIsViewed()) {
-					contentReport += chapter.toString() + "\n";
+					//contentReport += chapter.toString() + "\n";
 					
 				}
 			}	
@@ -274,35 +302,57 @@ public class Main {
 		
 		for (Book book : books) {
 			if (book.getIsReaded()) {
-				contentReport += book.toString() + "\n";
+				//contentReport += book.toString() + "\n";
 				
 			}
 		}
+		*/
 
-		report.setContent(contentReport);
+		report.setContent(contentReport.toString());
 		report.makeReport();
 		System.out.println("Reporte Generado");
 		System.out.println();
 	}
 	
 	public static void makeReport(Date date) {
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		String dateString = df.format(date);
 		Report report = new Report();
 		
 		report.setNameFile("reporte" + dateString);
 		report.setExtension("txt");
 		report.setTitle(":: VISTOS ::");
-		
-		
-		SimpleDateFormat dfNameDays = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+				
+		SimpleDateFormat dfNameDays = new SimpleDateFormat("yyyy-MM-dd");
 		dateString = dfNameDays.format(date);
-		String contentReport = "Date: " + dateString + "\n\n\n";
+		//String contentReport = "Date: " + dateString + "\n\n\n";
 		String dateConsulted[] = dateString.split(" ");
 		String dateViewed[];
+		
+		StringBuilder contentReport = new StringBuilder();
+		contentReport.append("Date: " + dateString + "\n\n\n");
+						
+		movies.stream().filter(m -> m.getIsViewed())
+		.filter( m -> m.getDateViewed().split(" ")[0].equals(dateConsulted[0]))
+		.forEach(m->contentReport.append(m.toString()+"\n"));
+							
+		Consumer<Serie> seriesEach = s -> {
+			ArrayList<Chapter> chapters = s.getChapters();
+			chapters.stream().filter(c -> c.getIsViewed()).
+			forEach(c->contentReport.append(c.toString()+"\n"));;
+		};
+		
+		series.stream()
+		.filter( s -> s.getDateViewed().split(" ")[0].equals(dateConsulted[0]))
+		.forEach(seriesEach);
+		
+		
+		books.stream().filter(b -> b.getIsReaded())		
+		.forEach(b->contentReport.append(b.toString()+"\n"));
+		
+		/*
 		for (Movie movie : movies) {			
-			dateViewed = movie.getDateViewed().split(" ");
-			System.out.println(dateViewed[0]+" = " + dateConsulted[0]);
+			dateViewed = movie.getDateViewed().split(" ");			
 			if (movie.getIsViewed() && dateViewed[0].equals(dateConsulted[0])) {
 				contentReport += movie.toString() + "\n";
 				
@@ -325,7 +375,8 @@ public class Main {
 				
 			}
 		}
-		report.setContent(contentReport);
+		*/
+		report.setContent(contentReport.toString());
 		report.makeReport();
 		
 		System.out.println("Reporte Generado");
