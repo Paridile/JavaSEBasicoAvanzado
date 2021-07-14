@@ -16,5 +16,12 @@ public class Main {
 		
 		oneListener.onOne("Sin lambda");
 		oneListener2.onOne("Con lambda");
+		
+		OnClickListener onClickListener = (String element) -> {
+			System.out.println("Has hecho click en: " + element);
+		};
+		
+		onClickListener.clickListener("boton");
+		
 	}
 }
